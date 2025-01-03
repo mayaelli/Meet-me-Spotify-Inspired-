@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<style>
+  * {
+  padding: 0;
+  margin: 0;
+}
+body {
+  background-color: #121212;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 196px;
+  background-color: #000000;
+  padding: 24px;
+}
+.sidebar .logo img {
+  width: 130px;
+}
+.sidebar .navigation ul {
+  list-style: none;
+  margin-top: 20px;
+}
+.sidebar .navigation ul li {
+  padding: 10px 0px;
+}
+.sidebar .navigation ul li a {
+  color: #b3b3b3;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 13px;
+}
+.sidebar .navigation ul li a:hover,
+.sidebar .navigation ul li a:active,
+.sidebar .navigation ul li a:focus {
+  color: #ffffff;
+}
+.sidebar .navigation ul li a:hover .fa,
+.sidebar .navigation ul li a:active .fa,
+.sidebar .navigation ul li a:focus .fa {
+  color: #b3b3b3;
+}
+.sidebar .navigation ul li .fa {
+  font-size: 20px;
+  margin-right: 10px;
+}
+.sidebar .navigation ul li a:hover .fa:hover,
+.sidebar .navigation ul li a:hover .fa:active,
+.sidebar .navigation ul li a:hover .fa:focus {
+  color: #ffffff;
+}
+
+.spotify-playlists {
+  padding: 20px 40px;
+}
+.spotify-playlists h2 {
+  color: #ffffff;
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+.spotify-playlists .list {
+  display: flex;
+  gap: 20px;
+  overflow: hidden;
+}
+.spotify-playlists .list .item {
+  min-width: 140px;
+  width: 160px;
+  padding: 15px;
+  background-color: #181818;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all ease 0.4s;
+}
+.spotify-playlists .list .item:hover {
+  background-color: #252525;
+}
+.spotify-playlists .list .item img {
+  width: 100%;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+.spotify-playlists .list .item .play {
+  position: relative;
+}
+.spotify-playlists .list .item .play .fa {
+  position: absolute;
+  right: 10px;
+  top: -60px;
+  padding: 18px;
+  background-color: #1db954;
+  border-radius: 100%;
+  opacity: 0;
+  transition: all ease 0.4s;
+}
+.spotify-playlists .list .item:hover .play .fa {
+  opacity: 1;
+  transform: translateY(-20px);
+}
+.spotify-playlists .list .item h4 {
+  color: #ffffff;
+  font-size: 14px;
+  margin-bottom: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.spotify-playlists .list .item p {
+  color: #989898;
+  font-size: 12px;
+  line-height: 20px;
+  font-weight: 600;
+}
+.spotify-playlists hr {
+  margin: 70px 0px 0px;
+  border-color: #636363;
+}
+
+.preview {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to right, #ae2896, #509bf5);
+  padding: 15px 40px;
+  display: flex;
+  justify-content: space-between;
+}
+.preview h6 {
+  color: #ffffff;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+.preview p {
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 500;
+}
+.preview button {
+  background-color: #ffffff;
+  color: #000000;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 14px 30px;
+  border: 0px;
+  border-radius: 40px;
+  cursor: pointer;
+}* {
+  padding: 0;
+  margin: 0;
+}
+body {
+  background-color: #121212;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 196px;
+  background-color: #000000;
+  padding: 24px;
+}
+.sidebar .logo img {
+  width: 130px;
+}
+.sidebar .navigation ul {
+  list-style: none;
+  margin-top: 20px;
+}
+.sidebar .navigation ul li {
+  padding: 10px 0px;
+}
+.sidebar .navigation ul li a {
+  color: #b3b3b3;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 13px;
+}
+.sidebar .navigation ul li a:hover,
+.sidebar .navigation ul li a:active,
+.sidebar .navigation ul li a:focus {
+  color: #ffffff;
+}
+.sidebar .navigation ul li a:hover .fa,
+.sidebar .navigation ul li a:active .fa,
+.sidebar .navigation ul li a:focus .fa {
+  color: #b3b3b3;
+}
+.sidebar .navigation ul li .fa {
+  font-size: 20px;
+  margin-right: 10px;
+}
+.sidebar .navigation ul li a:hover .fa:hover,
+.sidebar .navigation ul li a:hover .fa:active,
+.sidebar .navigation ul li a:hover .fa:focus {
+  color: #ffffff;
+}
+
+.profile-container {
+  display: inline-block;
+  position: relative;
+  padding: 5.0006px;
+  border: 0px solid #ffffff; /* White border */
+  border-radius: 5px;
+  overflow: hidden;
+  backdrop-filter: blur(10px); /* Apply the blur effect */
+  background: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
+  width: calc(100% - 245px); /* Extends to the right side of the page */
+  left: 250px; /* Starts 245px from the left */
+  top: -10px; /* Adjust this to position it vertically if needed */
+}
+
+.circle-image {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-left: 60px;
+  margin-top: 67px;
+}
+
+.name {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  margin-left: 340px;
+  margin-top: -170px;
+  margin-bottom: 10px;
+}
+
+
+.p2 {
+  font-size: 95px;
+  font-weight: bolder;
+  color: #ffffff;
+}
+
+.p3 {
+  font-size: 16px;
+  color: #ffffff;
+  font-weight: bold;
+  
+}
+
+.p4-p5-container {
+  display: flex; /* Align p4 and p5 horizontally */
+  gap: 0px; /* Space between p4 and p5 */
+}
+
+.p4, .p5 {
+  display: inline-block;
+  font-size: 12px;
+  color: #ffffff;
+  background-color: black; /* Black background */
+  padding: 5px 7px; /* Padding inside the border */
+  border: 1px solid #ffffff; /* White border */
+  border-radius: 13px; /* Rounded corners */
+  margin-right: 10px; /* Space between p4 and p5 */
+  margin-top: 8px; /* To keep them close to p3 */
+  
+}
+
+.top-played-songs {
+  display:inline-block;
+  flex-wrap: wrap;
+  gap: -120px;
+}
+
+/* Section title */
+.top-played-songs h2 {
+  font-size: 24px;
+  color: #ffffff;
+  margin-bottom: 20px;
+  margin-left: 300px;
+  margin-top: 10px;
+}
+
+/* Container for the song items */
+.song-item {
+  display:inline-block; /* Ensures they are inline */
+  margin-right: -150px; /* Spacing between songs */
+  margin-left: 368px;
+  margin-bottom: -150px;
+  margin-top: 5px;
+}
+
+/* Ensures the iframe has a fixed width and height */
+iframe {
+  border-radius: 12px; /* Add rounded corners for a sleek look */
+  
+}
+
+
+
+
+</style>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maya's Playlist</title>
+</head>
+
+
+
+<body>
+
+  <div class="sidebar">
+    <div class="logo">
+      <a href="#">
+        <img src="https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_CMYK_Green.png" alt="Logo" />
+      </a>
+    </div>
+
+    <div class="navigation">
+      <ul>
+        <li>
+          <a href="index.html">
+            <span class="fa fa-home"></span>
+            <span>Home</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="about-her.html">
+            <span class="fa fa-search"></span>
+            <span>About Her</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="creative.html">
+            <span class="fa fas fa-book"></span>
+            <span>Creative Space</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="index.html">
+            <span class="fa fas fa-book"></span>
+            <span>Aspirations</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="navigation">
+      <ul>
+        <li>
+          <a href="#">
+            <span class="fa fas fa-plus-square"></span>
+            <span>Favorites</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="#">
+            <span class="fa fas fa-heart"></span>
+            <span>Liked Songs</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="profile-container">
+    <div>
+        <img src="images/me-profile.jpg" alt="profile image" class="circle-image">
+    </div>
+    <div class="name">
+      <span class="p2"> Marhamah ☆ </span>
+      <span class="p3"> 3rd Year | BSIT - Major in Database Systems </span>
+      <div p4p5-container>
+        <span class="p4">Crafted Maverick</span>
+        <span class="p5">Mysterious Intuition</span>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="top-played-songs">
+    <h2>Top Played Songs</h2>
+  
+    <div class="song-item">
+      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/6bM1QYzUKzZpQyAa7uO5kr?utm_source=generator&theme=0" width="130%" height="130" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    </div>
+  
+    <div class="song-item">
+      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/4EMTe461jubpxPqFfVA0Rp?utm_source=generator&theme=0" width="130%" height="130" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    </div>
+  
+    <div class="song-item">
+      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/3A7Etq2wGE9cYqLIma97Tt?utm_source=generator" width="130%" height="130" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    </div>
+  
+    <div class="song-item">
+      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/2K0CH6BtfBtY7wMnsKIuzo?utm_source=generator&theme=0" width="130%" height="130" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    </div>
+
+    <div class="song-item">
+      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/0Wc6cbF38a90b8wov9V63F?utm_source=generator&theme=0" width="130%" height="130" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    </div>
+    
+    <div class="song-item">
+      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/0QzuaeCEEOV40Pn7IvKEny?utm_source=generator&theme=0" width="130%" height="130" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    </div>
+
+    <div class="song-item">
+      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/61DuXKQqvXkxcrAIiNLIgR?utm_source=generator&theme=0" width="130%" height="130" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    </div>
+
+    <div class="song-item">
+      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/12NU0eZeogiWysYpXKOhrY?utm_source=generator&theme=0" width="130%" height="130" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    </div>
+
+  </div>
+  
+  
+</body>
+
+</html>
